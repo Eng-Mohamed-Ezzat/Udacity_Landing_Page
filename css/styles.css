@@ -208,6 +208,16 @@ section.your-active-class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
+.active-section {
+    background-color: #333;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.active-link {
+    color: #cc1;
+    font-weight: bold;
+}
+
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
 	from {
@@ -221,3 +231,4 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+
