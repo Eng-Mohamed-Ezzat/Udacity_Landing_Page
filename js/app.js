@@ -30,9 +30,9 @@ const navList = document.getElementById('navbar__list');
  * Start Helper Functions
  * 
 */
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (rect.top >= 0 && rect.top <= 200);
+function isInViewport(section) {
+    const rect = section.getBoundingClientRect();
+    return (rect.top >= 0 && rect.top <= window.innerHeight * 0.5);
 }
 
 
@@ -54,14 +54,14 @@ function buildNav() {
 
 // Add class 'active' to section when near top of viewport
 function setActiveSection() {
-    sections.forEach((section) => {
+    sections.forEach(section => {
         const navLink = document.querySelector(`a[href="#${section.id}"]`);
         if (isInViewport(section)) {
-            section.classList.add('active-section');
-            navLink.classList.add('active-link');
+            section.classList.add("active-section");
+            navLink.classList.add("active-link");
         } else {
-            section.classList.remove('active-section');
-            navLink.classList.remove('active-link');
+            section.classList.remove("active-section");
+            navLink.classList.remove("active-link");
         }
     });
 }
@@ -88,6 +88,8 @@ document.addEventListener('DOMContentLoaded', buildNav);
 navList.addEventListener('click', scrollToSection);
 
 // Set sections as active
-document.addEventListener('scroll', setActiveSection);
+window.addEventListener("scroll", setActiveSection);
+
+setActiveSection();
 
 
